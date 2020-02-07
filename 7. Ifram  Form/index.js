@@ -6,7 +6,7 @@ const driver = new Builder()
 // .setFirefoxOptions(options)
 .build();
 
-async function radioButtonRegister(){
+async function iframeForm(){
     try {
         (await driver).get("https://rori4.github.io/selenium-practice/#/pages/practice/iframe-form");
         await driver.switchTo().frame(0);
@@ -16,4 +16,4 @@ async function radioButtonRegister(){
         Console.log(error);
     }
 }
-radioButtonRegister();
+iframeForm();

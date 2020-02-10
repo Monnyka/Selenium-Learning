@@ -3,7 +3,8 @@ const firefox = require("selenium-webdriver/firefox");
 
 //const proxy = require("selenium-webdriver/proxy")
 //const proxyServer = "190.152.0.130:55870";
-const options =new firefox.Options();
+//const options =new firefox.Options();
+var userData={name:'Leon', password:'123', email:'sampleemailUser@gmail.com'};
 
 // options.setPreference("browser.download.dir","C:\\Users\\PathmazingPC\\Desktop\\Selenium\\Download CSV");
 // options.setPreference("browser.download.folderList",2);
@@ -11,15 +12,15 @@ const options =new firefox.Options();
 
 const driver = new Builder()
 .forBrowser("firefox")
-.setFirefoxOptions(options)
+//.setFirefoxOptions(options)
 //.setProxy(proxy.manual({http:proxyServer,https: proxyServer}))  
 .build();
 
 async function openWebsite(){
     try {
         await driver.get("https://rori4.github.io/selenium-practice/#/pages/practice/simple-registration");
-        await driver.findElement(By.id("email")).sendKeys("sampleemail@gmail.com");
-        await driver.findElement(By.id("password")).sendKeys("123456");
+        await driver.findElement(By.id("email")).sendKeys(userData.email);
+        await driver.findElement(By.id("password")).sendKeys(userData.password);
         await driver.findElement(By.id("submit")).click();
 
     } catch (error) {

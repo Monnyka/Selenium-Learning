@@ -11,7 +11,8 @@ async function iframeForm(){
         (await driver).get("https://rori4.github.io/selenium-practice/#/pages/practice/iframe-form");
         await driver.switchTo().frame(0);
         await (await driver).findElement(By.xpath("//input[@aria-label='Name']")).sendKeys("Leon");
-
+        var title = driver.getTitle();
+        expect (title).equals("Google");
     } catch (error) {
         Console.log(error);
     }

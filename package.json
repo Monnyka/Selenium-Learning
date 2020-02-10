@@ -4,7 +4,7 @@
   "description": "selenium example project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cucumber-js"
   },
   "author": "Leon",
   "license": "MIT",
@@ -13,5 +13,16 @@
     "chromedriver": "^80.0.0",
     "geckodriver": "^1.19.1",
     "selenium-webdriver": "^4.0.0-alpha.5"
-  }
+  },
+  "devDependencies": {
+    "cucumber": "^6.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Monnyka/Selenium-Learning.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Monnyka/Selenium-Learning/issues"
+  },
+  "homepage": "https://github.com/Monnyka/Selenium-Learning#readme"
 }

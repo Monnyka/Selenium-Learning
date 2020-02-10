@@ -19,6 +19,7 @@ const driver = new Builder()
 async function openWebsite(){
     try {
         await driver.get("https://rori4.github.io/selenium-practice/#/pages/practice/simple-registration");
+        
         await driver.findElement(By.id("email")).sendKeys(userData.email);
         await driver.findElement(By.id("password")).sendKeys(userData.password);
         await driver.findElement(By.id("submit")).click();

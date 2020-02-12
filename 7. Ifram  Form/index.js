@@ -11,7 +11,7 @@ async function iframeForm(){
         await driver.get("https://rori4.github.io/selenium-practice/#/pages/practice/iframe-form");
         await driver.manage().deleteAllCookies();
         await driver.switchTo().frame(0);
-        await (await driver).findElement(By.xpath("//input[@aria-label='Name']")).sendKeys("Leon");
+        await driver.findElement(By.xpath("//input[@aria-label='Name']")).sendKeys("Leon");
         await driver.actions().sendKeys(Key.TAB).perform();
         await driver.actions().sendKeys(
             Key.chord(

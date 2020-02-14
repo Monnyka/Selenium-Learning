@@ -23,13 +23,11 @@ async function iframeForm(){
           ).perform();
           await driver.actions().sendKeys(Key.TAB, ).perform();
           await driver.actions().sendKeys(Key.TAB, ).perform();
-
           //Drop down
           await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
           await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
           await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
-          await driver.actions().sendKeys(Key.SPACE).perform();
-          await driver.actions().sendKeys(Key.SPACE).perform();
+          await driver.actions().sendKeys(Key.ENTER).perform();
           await driver.actions().sendKeys(Key.TAB).perform();
           await driver.actions().sendKeys(Key.chord("02", "20", "2020")).perform();
           await driver.actions().sendKeys(Key.chord(Key.TAB, Key.SPACE)).perform();

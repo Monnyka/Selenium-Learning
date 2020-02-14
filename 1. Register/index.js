@@ -23,6 +23,7 @@ async function openWebsite(){
         await driver.findElement(By.id("email")).sendKeys(userData.email);
         await driver.findElement(By.id("password")).sendKeys(userData.password);
         await driver.findElement(By.id("submit")).click();
+        Console.log("Case: 1 [Pass]");
 
     } catch (error) {
         Console.log(error);

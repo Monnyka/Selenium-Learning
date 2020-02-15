@@ -1,5 +1,5 @@
 const {Builder, By, Key, util}= require('selenium-webdriver')
-const driver = await new Builder().forBrowser("chrome").build();
+const driver = new Builder().forBrowser("chrome").build();
 
  async function accessAdmin(){
     driver.manage().window().maximize();

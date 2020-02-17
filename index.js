@@ -1,6 +1,5 @@
-const {Builder, By, Key} = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
-
+const {Builder, By, Key, util}= require('selenium-webdriver')
+const driver = new Builder().forBrowser("chrome").build();
 const driver = new Builder()
 .forBrowser("chrome")
 // .setFirefoxOptions(options)

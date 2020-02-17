@@ -1,5 +1,7 @@
+Feature: Open Google Page
+  This feature will open google page
 
-Scenario: Finding some cheese
-   Given I am on the Google search page
-   When I search for "Cheese!"
-   Then the page title should start with "cheese"
+  Scenario: Open Google Page
+    Given https://google.com
+    When Search for google website
+    Then It should be loaded to https://google.com

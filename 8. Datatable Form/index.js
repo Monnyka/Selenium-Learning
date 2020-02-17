@@ -25,5 +25,4 @@ async function extractTable() {
     console.log(error);
   }
 }
-
 extractTable();

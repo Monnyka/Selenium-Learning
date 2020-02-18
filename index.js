@@ -5,7 +5,7 @@ const driver = new Builder().forBrowser("chrome").build();
 
 async function accessAdmin() {
     try {
-        await driver.get(URL = 'https://google.com')
+        await driver.get(URL = 'https://google.com/khmer')
         // await driver.findElement(By.xpath('//input[@formcontrolname="email"]')).sendKeys('pathmazing', Key.ENTER)
         // await driver.findElement(By.css(".white-text")).click();
         // await driver.findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys("qa.org@pathmazing.com");

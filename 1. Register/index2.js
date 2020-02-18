@@ -1,10 +1,11 @@
+const fs = require('fs');
 const {Builder, By, Key} = require("selenium-webdriver");
 const firefox = require("selenium-webdriver/firefox");
 
 //const proxy = require("selenium-webdriver/proxy")
 //const proxyServer = "190.152.0.130:55870";
 //const options =new firefox.Options();
-var userData={name:'Leon', password:'123', email:'sampleemailUser@gmail.com'};
+var userData={name:'Leon', password:'123123123', email:'sampleemailUser@gmail.com'};
 
 // options.setPreference("browser.download.dir","C:\\Users\\PathmazingPC\\Desktop\\Selenium\\Download CSV");
 // options.setPreference("browser.download.folderList",2);
@@ -29,4 +30,4 @@ async function openWebsite(){
         Console.log(error);
     }
 }
-openWebsite()
+openWebsite();

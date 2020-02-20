@@ -13,6 +13,7 @@ async function checkboxForm(){
         (await driver).findElement(By.xpath("//input[@value='presidential-suite']/following::span")).click();
         (await driver).findElement(By.xpath("//nb-checkbox[@value='breakfast']/label/span")).click();
         (await driver).findElement(By.xpath("//nb-checkbox[@value='lunch']/label/span")).click();
+
         (await driver).findElement(By.xpath("//button[@id='submit']")).click();
     } catch (error) {
         Console.log(error);

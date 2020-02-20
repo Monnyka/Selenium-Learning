@@ -1,8 +1,8 @@
 const {Builder, By, Key} = require("selenium-webdriver");
-const firefox = require("selenium-webdriver/firefox");
+const chrome = require("selenium-webdriver/chrome");
 
 const driver = new Builder()
-.forBrowser("firefox")
+.forBrowser("chrome")
 .build();
 
 async function fileUploadForm(){

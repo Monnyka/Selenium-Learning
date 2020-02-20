@@ -1,5 +1,4 @@
 const {Builder, By, Key} = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
 
 const driver = new Builder()
 .forBrowser("chrome")

@@ -1,9 +1,5 @@
 const {Builder, By, Key} = require("selenium-webdriver");
-const firefox = require("selenium-webdriver/firefox");
-
-const driver = new Builder()
-.forBrowser("firefox")
-.build();
+const driver = new Builder().forBrowser("chrome").build();
 
 async function dropdownForm(){
     try {

@@ -1,6 +1,8 @@
 const fs = require('fs');
 const { Builder, By, Key } = require("selenium-webdriver");
 const firefox = require("selenium-webdriver/firefox");
+const ExcelJS = require('exceljs');
+
 
 //const proxy = require("selenium-webdriver/proxy")
 //const proxyServer = "190.152.0.130:55870";
@@ -11,15 +13,26 @@ var userData = {
     email: 'sampleemailUser@gmail.com'
 };
 
+
+
+
+async function saveAsExcel() {
+    const wb = new ExcelJS.Workbook()
+    const ws = wb.addWorksheet()
+    const row = ws.addRow(['a', 'b', 'c'])
+    row.font = { bold: true }
+    const buf = await wb.xlsx.writeBuffer()
+
+    saveAs(new Blob([buf]), '/abc.xlsx')
+}
+
 // options.setPreference("browser.download.dir","C:\\Users\\PathmazingPC\\Desktop\\Selenium\\Download CSV");
 // options.setPreference("browser.download.folderList",2);
 // options.setPreference("browser.helperApps.neverAsk.saveToDisk","text/csv");
 
-const driver = new Builder()
-    .forBrowser("firefox")
+const driver = new Builder().forBrowser("firefox").build();
     //.setFirefoxOptions(options)
     //.setProxy(proxy.manual({http:proxyServer,https: proxyServer}))  
-    .build();
 
 async function openWebsite() {
     try {
@@ -38,9 +51,6 @@ async function openWebsite() {
 
 
 }
-
-openWebsite();
-
 async function takeScreenshot() {
     await driver.takeScreenshot().then(function (data) {
         var base64Data = data.replace(/^data:image\/png;base64,/, "")
@@ -49,3 +59,5 @@ async function takeScreenshot() {
         });
     });
 }
+
+//openWebsite();

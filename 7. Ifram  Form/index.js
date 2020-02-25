@@ -1,10 +1,5 @@
 const {Builder, By, Key} = require("selenium-webdriver");
-const chrome = require("selenium-webdriver/chrome");
-
-const driver = new Builder()
-.forBrowser("chrome")
-// .setFirefoxOptions(options)
-.build();
+const driver = new Builder().forBrowser("chrome").build();
 
 async function iframeForm(){
     try {
@@ -23,7 +18,6 @@ async function iframeForm(){
           ).perform();
           await driver.actions().sendKeys(Key.TAB, ).perform();
           await driver.actions().sendKeys(Key.TAB, ).perform();
-          //Drop down
           await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
           await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
           await driver.actions().sendKeys(Key.ARROW_DOWN).perform();
@@ -33,8 +27,7 @@ async function iframeForm(){
           await driver.actions().sendKeys(Key.chord(Key.TAB, Key.SPACE)).perform();
           await driver.actions().sendKeys(Key.chord(Key.TAB, Key.SPACE)).perform();
           await driver.actions().sendKeys(Key.chord(Key.TAB, "This is my secret answer")).perform();
-         // await driver.actions().sendKeys(Key.chord(Key.TAB,Key.SPACE)).perform();
-                
+          //await driver.actions().sendKeys(Key.chord(Key.TAB,Key.SPACE)).perform();
     } catch (error) {
         Console.log(error);
     }

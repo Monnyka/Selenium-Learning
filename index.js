@@ -1,32 +1,21 @@
-const { openWebsite } = require('./1. Register/index.js/index.js')
-const fs = require('fs');
-const { Builder, By, Key, util } = require('selenium-webdriver')
-const driver = new Builder().forBrowser("chrome").build();
+const Excel = require('exceljs');
 
-driver.manage().window().maximize();
-//driver.manage().window().setPosition(0,3000);
+async function writeExcel(){
+    const workbook = new Excel.Workbook();
+    const worksheet = workbook.addWorksheet("Test Data");
 
-async function accessAdmin() {
-    try {
-        await driver.get('https://google.com')
-        // await driver.findElement(By.xpath('//input[@formcontrolname="email"]')).sendKeys('pathmazing', Key.ENTER)
-        // await driver.findElement(By.css(".white-text")).click();
-        // await driver.findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys("qa.org@pathmazing.com");
-        // await driver.findElement(By.css(".login-btn")).click();
-        
-        //Take Screen Shot
-        var filePath="\image\/"
-        await driver.takeScreenshot().then(function (data) {
-            var base64Data = data.replace(/^data:image\/png;base64,/, "")
-            fs.writeFile(filePath+"Screenshot.png", base64Data, 'base64', function (err) {
-                if (err) console.log(err);
-            });
-            });
+    worksheet.columns = [
+        {header: 'Testcase ID', key: 'id', width: 12},
+        {header: 'Testcase Scenario', key: 'testcase', width: 60}, 
+        {header: 'Pass/Fail', key: 'success', width: 15,}
+       ];
+    
+       //worksheet.addRow({id: 1, name: "Testcase: Log in to the web admin", dob: new Date(1970, 1, 1)});
+       worksheet.addRow({id: 1, testcase: "Testcase: Log in to the web admin", success: "Passed"});
 
-    } catch (error) {
-        console.log(error);
-    }
+       //Save file and data
+       await workbook.xlsx.writeFile('Data/Export_data.xlsx');
+       console.log("Successfully exported the data to excel file.");
 }
 
-
-accessAdmin();
+writeExcel();

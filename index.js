@@ -16,6 +16,16 @@ async function writeExcel(){
        //Save file and data
        await workbook.xlsx.writeFile('Data/Export_data.xlsx');
        console.log("Successfully exported the data to excel file.");
+
+       
+       //Read Data From Excel File
+       workbook.xlsx.readFile("Data/Export_data.xlsx")
+    .then(function() {
+        var worksheet = workbook.getWorksheet('Test Data');
+        var cell = worksheet.getCell('B2').value;
+        console.log(cell);
+    });
+
 }
 
 writeExcel();

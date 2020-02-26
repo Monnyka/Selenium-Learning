@@ -12,14 +12,15 @@ var userData = {
     password: '123123123',
     email: 'sampleemailUser@gmail.com'
 };
+var status = 'False'
 
 // options.setPreference("browser.download.dir","C:\\Users\\PathmazingPC\\Desktop\\Selenium\\Download CSV");
 // options.setPreference("browser.download.folderList",2);
 // options.setPreference("browser.helperApps.neverAsk.saveToDisk","text/csv");
 
 const driver = new Builder().forBrowser("firefox").build();
-    //.setFirefoxOptions(options)
-    //.setProxy(proxy.manual({http:proxyServer,https: proxyServer}))  
+//.setFirefoxOptions(options)
+//.setProxy(proxy.manual({http:proxyServer,https: proxyServer}))  
 
 async function openWebsite() {
     try {
@@ -33,8 +34,8 @@ async function openWebsite() {
     var titleMessageError = await driver.findElement(By.xpath("//p[contains(.,'Please provide a valid email!')]")).getText();
     if (titleMessageError == "Please provide a valid email!") {
         await takeScreenshot();
-        await writeExcelFile();
-        await driver.navigate().refresh();   
+        await writeExcelFile(2, 3, 'Passed');
+        await driver.navigate().refresh();
     }
 }
 
@@ -47,12 +48,18 @@ async function takeScreenshot() {
     });
 }
 
-async function writeExcelFile(){
-    let workbook = new Excel.Workbook();
-    workbook.xlsx.readFile("../Data/Export_data.xlsx")
-    var worksheet = workbook.getWorksheet('Test Data');
-    worksheet.getCell('C2').value = 'Fail';
-    worksheet.commit();
-
+async function writeExcelFile(rowCase, colomnCase, status) {
+    var workbook = new Excel.Workbook();
+    workbook.xlsx.readFile("Data/Export_data.xlsx").then(function () {
+        var woorksheet = workbook.getWorksheet("Test Data");
+        if (status == "Passed") {
+            woorksheet.getRow(rowCase).getCell(colomnCase).value = status;
+            workbook.xlsx.writeFile("Data/Export_data.xlsx");
+        }
+        else {
+            woorksheet.getRow(rowCase).getCell(colomnCase).value = status;
+            workbook.xlsx.writeFile("Data/Export_data.xlsx");
+        }
+    })
 }
 openWebsite();

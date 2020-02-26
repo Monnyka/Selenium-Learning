@@ -7,11 +7,11 @@ async function writeExcel(){
     worksheet.columns = [
         {header: 'Testcase ID', key: 'id', width: 12},
         {header: 'Testcase Scenario', key: 'testcase', width: 60}, 
-        {header: 'Pass/Fail', key: 'success', width: 15,}
+        {header: 'Status', key: 'status', width: 15,}
        ];
     
        //worksheet.addRow({id: 1, name: "Testcase: Log in to the web admin", dob: new Date(1970, 1, 1)});
-       worksheet.addRow({id: 1, testcase: "Testcase: Log in to the web admin", success: "Passed"});
+       worksheet.addRow({id: 1, testcase: "Testcase: Log in to the web admin", status: "Passed"});
 
        //Save file and data
        await workbook.xlsx.writeFile('Data/Export_data.xlsx');

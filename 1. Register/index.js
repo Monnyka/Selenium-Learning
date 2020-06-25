@@ -53,6 +53,5 @@ async function writeExcelFile(){
     var worksheet = workbook.getWorksheet('Test Data');
     worksheet.getCell('C2').value = 'Fail';
     worksheet.commit();
-
 }
 openWebsite();
